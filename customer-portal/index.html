@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<meta name="description" content="Bridal Registry Website">
+		<meta name="author" content="Rosy Rambani">
+		<!-- Bootstrap CSS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="cpstyle.css">
+		<title>Bowring Bridal Registry</title>
+	</head>
+	<body>
+		
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+			<a class="navbar-brand" href="#">Bowring Bridal Registry</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    			<span class="navbar-toggler-icon"></span>
+  			</button>
+  			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			    <ul class="navbar-nav">
+			      <li class="nav-item">
+			        <a class="nav-link" href="#">Link</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="#">Link</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="#">Link</a>
+			      </li> 
+			    </ul>
+			 </div> 
+			
+		</nav>
+
+		<div class="text-center">
+			<form name="search" id="search" class="card form-search">
+				<h2 class="form-title">Search By Registry Code</h2>
+				<div class="form-group row">
+					<input class="form-control col-sm-6" type="text" id="searchcode" name="searchcode" placeholder="Enter the Registry Code">
+					<button class="btn btn-outline-success col-sm-6" id="getCxDetails" name="getCxDetails" type="submit">Customer Details</button>
+					
+				</div>
+				<!-- <div class="form-group row">
+					
+					<input class="form-control col-sm-6" type="text" id="dbProducts" name="dbProducts" placeholder="Enter the Registry Code">
+					<button class="btn btn-outline-success col-sm-6" id="getProducts" name="getProducts" type="button">Show Products</button>
+				</div> -->
+			</form>
+
+			<form name="updateform" id="updateform" class="card form-registry" style="display: none;">
+				<h2 class="form-title">Search Results</h2>
+				
+				<div class="form-group row">
+					<label for="newregistrycode" class="col-sm-4 col-form-label">Registry Code:</label>
+					<div class="col-sm-8">
+						<input type="text" name="newregistrycode" id="newregistrycode" class="form-control" placeholder="Registry Code" required readonly>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="newbride" class="col-sm-4 col-form-label">Bride Name:</label>
+					<div class="col-sm-8">
+						<input type="text" name="newbride" class="form-control" id="newbride" placeholder="Name of Bride" required readonly>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="newgroom" class="col-sm-4 col-form-label">Groom Name:</label>
+					<div class="col-sm-8">
+						<input type="text" name="newgroom" id="newgroom" class="form-control" placeholder="Name of Groom" required readonly>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="newphone" class="col-sm-4 col-form-label">Contact Number:</label>
+					<div class="col-sm-8">
+						<input type="text" name="newphone" id="newphone" class="form-control" placeholder="Enter Phone Number" required readonly>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="newemail" class="col-sm-4 col-form-label">Contact Email:</label>
+					<div class="col-sm-8">
+						<input type="email" name="newemail" id="newemail" class="form-control" placeholder="Enter Contact Email" readonly>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="newweddingdate" class="col-sm-4 col-form-label">Date of Wedding:</label>
+					<div class="col-sm-8">
+						<input type="Date" name="newweddingdate" id="newweddingdate" class="form-control" placeholder="Enter Wedding Date" readonly>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="newshowersdate" class="col-sm-4 col-form-label">Date of Showers:</label>
+					<div class="col-sm-8">
+						<input type="Date" name="newshowersdate" id="newshowersdate" class="form-control" placeholder="Enter Showers Date" readonly>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="newregistrydate" class="col-sm-4 col-form-label">Date of Registry:</label>
+					<div class="col-sm-8">
+						<input type="Date" name="newregistrydate" id="newregistrydate" class="form-control" placeholder="Enter Today Date" required readonly>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="newstore" class="col-sm-4 col-form-label">Store of Registry:</label>
+					<div class="col-sm-8">
+						<input type="text" name="newstore" id="newstore" class="form-control" placeholder="Enter Your Store Number" required readonly>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="newemployeename" class="col-sm-4 col-form-label">Registry Taken By:</label>
+					<div class="col-sm-8">
+						<input type="text" name="newemployeename" id="newemployeename" class="form-control" placeholder="Enter Employee Name" required readonly>
+					</div>
+				</div>
+				<button class="btn btn-lg btn-primary btn-block" type="submit" id="fetchProducts" name="fetchProducts"><a>Show Products in this Registry</a></button>
+			</form>
+			<form name="productsForm" id="productsForm" class="card form-addsku" style="display: none;">
+				<h3 class="form-title">Products in this Registry</h3>
+				<div class="row">
+					<div class="col-sm-2">
+						<label for="regcode" class="form-label">Registry Code:</label>
+					</div>
+					<div class="col-sm-2">
+						<input type="text" name="regcode" id="regcode" class="form-control item_regcode" readonly>
+					</div>
+					
+				</div>
+				<br>
+				<table class="table table-hover">
+					<thead class="thead-light">
+						<tr class="row">
+							<th class="col-md-1" scope="col">Product SKU</th>
+							<th class="col-md-4" scope="col">Description</th>
+							<th class="col-md-1" scope="col">Quantity</th>
+							<th class="col-md-5" scope="col">Notes</th>
+							<th class="col-md-1" scope="col">Gifted</th>
+						</tr>
+					</thead>
+					<tbody id="showProducts">
+					</tbody>
+				</table>
+				<button class="btn btn-danger" id="updateProducts" name="updateProducts" type="submit">Update Changes to the Products</button>
+			</form>
+			<script type="text/javascript">
+				$(document).ready(function(){
+
+					$('#updateProducts').click(function(e){
+						e.preventDefault();
+						console.log("update clicked");
+						var item_regcode = [];
+						var item_sku = [];
+						var item_description = [];
+						var item_quantity = [];
+						var item_notes = [];
+						var item_gifted = [];
+						$('#regcode').each(function(){
+							item_regcode.push($(this).val());
+						});
+						$('.item_sku').each(function(){
+							item_sku.push($(this).text());
+						});
+						$('.item_description').each(function(){
+							item_description.push($(this).text());
+						});
+						$('.item_quantity').each(function(){
+							item_quantity.push($(this).text());
+						});
+						$('.item_notes').each(function(){
+							item_notes.push($(this).text());
+						});
+						$('.item_gifted').each(function(){
+							item_gifted.push($(this).text());
+						});
+						console.log(item_regcode, item_sku, item_description, item_quantity, item_notes, item_gifted);
+						var productsUpdated = {item_regcode:item_regcode, item_sku:item_sku, item_description:item_description, item_quantity:item_quantity, item_notes:item_notes, item_gifted:item_gifted} ;
+						console.log(productsUpdated);
+						$.ajax({
+							method: "POST",
+							url: "cp-update-products.php",
+							data: productsUpdated,
+							success: function(response){
+								// alert(response);
+								console.log(response);
+								$("#productsForm").remove();
+					var del = '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Products Successfully Updated!</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+					$('#updateform').append(del);
+							}
+						});
+					});
+
+					$("#fetchProducts").click(function(e){
+						e.preventDefault();
+						$(this).prop('disabled', true);
+						var reg = document.getElementById("newregistrycode").value;
+						console.log(reg);
+						$.ajax({
+						
+						type: 'post',
+						url: 'cp-fetch-products.php',
+						data: {
+							registryCode:reg
+						},
+						success: function (response) {
+							if(response == '0')
+							{
+								// alert("no available data");
+								var err = '<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>No Products with this Registry Code</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+								$('#updateform').append(err);
+								// $('#getProducts').prop('disabled', false);
+							}
+							else {
+							console.log(response);
+							// document.getElementById("showProducts").contentEditable = true;
+							$("#productsForm").css("display", "block");
+							var content = document.getElementById("showProducts");
+							content.innerHTML = content.innerHTML+response;
+							document.getElementById("regcode").value = reg;
+						}
+						}
+					});
+					});
+
+					$("#getCxDetails").click(function(e){
+						e.preventDefault();
+						$(this).prop('disabled',true);
+						var reg = document.getElementById("searchcode").value;
+					$.ajax({
+						type: 'post',
+						url: 'cp-fetch-cxdetails.php',
+						data: {
+							registryCode:reg
+						},
+						dataType: 'json',
+						success: function (response) {
+							if(response == '0')
+							{
+								var err = '<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Make sure you have entered correct registry code.</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+								$('#search').append(err);
+								$('#getProducts').prop('disabled', false);
+							}
+							else {
+								console.log(response);
+								$("#updateform").css("display", "block");
+								var regCodeDb = response.REGISTRYCODE;
+								var bride = response.BRIDE;
+								var groom = response.GROOM;
+								var phone = response.PHONE;
+								var email = response.EMAIL;
+								var wedding = response.WEDDINGDATE;
+								var showers = response.SHOWERSDATE;
+								var registry = response.REGISTRYDATE;
+								var store = response.STORE;
+								var employee = response.EMPLOYEENAME;
+								document.getElementById("newregistrycode").value = regCodeDb;
+								document.getElementById("newbride").value = bride;
+								document.getElementById("newgroom").value = groom;
+								document.getElementById("newphone").value = phone;
+								document.getElementById("newemail").value = email;
+								document.getElementById("newweddingdate").value = wedding;
+								document.getElementById("newshowersdate").value = showers;
+								document.getElementById("newregistrydate").value = registry;
+								document.getElementById("newstore").value = store;
+								document.getElementById("newemployeename").value = employee;
+								
+							}
+						}
+					});
+					});
+				});
+
+
+			</script>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js" integrity="sha384-feJI7QwhOS+hwpX2zkaeJQjeiwlhOP+SdQDqhgvvo1DsjtiSQByFdThsxO669S2D" crossorigin="anonymous"></script>
+		</body>
+</html>
