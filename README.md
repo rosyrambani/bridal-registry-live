@@ -1,2 +1,2 @@
 # bridal-registry-live
-bridal registry live on aws using php mysql
+bridal registry prototype or demo on aws using php mysql
